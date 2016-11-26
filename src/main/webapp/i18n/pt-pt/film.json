@@ -1,0 +1,33 @@
+{
+    "roulettefilmsApp": {
+        "film" : {
+            "home": {
+                "title": "Films",
+                "createLabel": "Criar um(a) novo(a) Film",
+                "createOrEditLabel": "Criar ou editar um(a) Film",
+                "search": "Search for Film"
+            },
+            "created": "A new Film is created with identifier {{ param }}",
+            "updated": "A Film is updated with identifier {{ param }}",
+            "deleted": "A Film is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tem a certeza que pretende eliminar o(a) Film {{ id }}?"
+            },
+            "detail": {
+                "title": "Film"
+            },
+            "filmTitle": "Film Title",
+            "filmYear": "Film Year",
+            "filmDurationInMinutes": "Film Duration In Minutes",
+            "filmSynopsis": "Film Synopsis",
+            "netflixRatingChartNumber": "Netflix Rating Chart Number",
+            "filmUrl": "Film Url",
+            "filmCriticScore": "Film Critic Score",
+            "filmAudienceScore": "Film Audience Score",
+            "filmNetflixRating": "Film Netflix Rating",
+            "filmBoxArtLink": "Film Box Art Link",
+            "filmCertRating": "Film Cert Rating",
+            "genre": "Genre"
+        }
+    }
+}

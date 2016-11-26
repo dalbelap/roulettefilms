@@ -1,0 +1,30 @@
+{
+    "roulettefilmsApp": {
+        "favouriteFilm" : {
+            "home": {
+                "title": "Favourite Films",
+                "createLabel": "Skapa en ny Favourite Film",
+                "createOrEditLabel": "Skapa eller ändra en Favourite Film",
+                "search": "Sök efter Favourite Film"
+            },
+            "created": "En ny Favourite Film är skapad med id {{ param }}",
+            "updated": "En Favourite Film är uppdaterad med id  {{ param }}",
+            "deleted": "En Favourite Film är borttagen med id  {{ param }}",
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Favourite Film {{ id }}?"
+            },
+            "detail": {
+                "title": "Favourite Film"
+            },
+            "favouriteFilmTitle": "Favourite Film Title",
+            "favouriteFilmYear": "Favourite Film Year",
+            "favouriteFilmDurationInMinutes": "Favourite Film Duration In Minutes",
+            "favouriteFilmSynopsis": "Favourite Film Synopsis",
+            "favouriteFilmNetflixRating": "Favourite Film Netflix Rating",
+            "favouriteFilmUserRating": "Favourite Film User Rating",
+            "createdFavouriteFilm": "Created Favourite Film",
+            "film": "Film",
+            "owner": "Owner"
+        }
+    }
+}

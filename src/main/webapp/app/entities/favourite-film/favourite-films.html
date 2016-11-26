@@ -1,0 +1,97 @@
+<div>
+    <h2 data-translate="roulettefilmsApp.favouriteFilm.home.title">Favourite Films</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="favourite-film.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  data-translate="roulettefilmsApp.favouriteFilm.home.createLabel">
+                        Create new Favourite Film
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'roulettefilmsApp.favouriteFilm.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="favouriteFilmTitle"><span data-translate="roulettefilmsApp.favouriteFilm.favouriteFilmTitle">Favourite Film Title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="favouriteFilmYear"><span data-translate="roulettefilmsApp.favouriteFilm.favouriteFilmYear">Favourite Film Year</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="favouriteFilmDurationInMinutes"><span data-translate="roulettefilmsApp.favouriteFilm.favouriteFilmDurationInMinutes">Favourite Film Duration In Minutes</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="favouriteFilmSynopsis"><span data-translate="roulettefilmsApp.favouriteFilm.favouriteFilmSynopsis">Favourite Film Synopsis</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="favouriteFilmNetflixRating"><span data-translate="roulettefilmsApp.favouriteFilm.favouriteFilmNetflixRating">Favourite Film Netflix Rating</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="favouriteFilmUserRating"><span data-translate="roulettefilmsApp.favouriteFilm.favouriteFilmUserRating">Favourite Film User Rating</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createdFavouriteFilm"><span data-translate="roulettefilmsApp.favouriteFilm.createdFavouriteFilm">Created Favourite Film</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="filmId"><span data-translate="roulettefilmsApp.favouriteFilm.film">Film</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ownerLogin"><span data-translate="roulettefilmsApp.favouriteFilm.owner">Owner</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="favouriteFilm in vm.favouriteFilms track by favouriteFilm.id">
+                    <td><a ui-sref="favourite-film-detail({id:favouriteFilm.id})">{{favouriteFilm.id}}</a></td>
+                    <td>{{favouriteFilm.favouriteFilmTitle}}</td>
+                    <td>{{favouriteFilm.favouriteFilmYear}}</td>
+                    <td>{{favouriteFilm.favouriteFilmDurationInMinutes}}</td>
+                    <td>{{favouriteFilm.favouriteFilmSynopsis}}</td>
+                    <td>{{favouriteFilm.favouriteFilmNetflixRating}}</td>
+                    <td>{{favouriteFilm.favouriteFilmUserRating}}</td>
+                    <td>{{favouriteFilm.createdFavouriteFilm | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="film-detail({id:favouriteFilm.filmId})">{{favouriteFilm.filmId}}</a>
+                    </td>
+                    <td>
+                        {{favouriteFilm.ownerLogin}}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="favourite-film-detail({id:favouriteFilm.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="favourite-film.edit({id:favouriteFilm.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="favourite-film.delete({id:favouriteFilm.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

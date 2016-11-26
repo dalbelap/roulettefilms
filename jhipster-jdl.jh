@@ -1,0 +1,51 @@
+
+entity Genre {
+	genreName String required
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Film {
+    filmTitle String required minlength(1) maxlength(30),
+    filmYear Integer required min(1890) max(2100),
+    filmDurationInMinutes Integer min(0) max(1440),
+    filmSynopsis String minlength(1) maxlength(1024),
+    netflixRatingChartNumber Integer required min(0),
+    filmUrl String required,
+	filmCriticScore Integer min(0) max(100),
+    filmAudienceScore Integer min(0) max(100),
+    filmNetflixRating Integer min(0) max(100),
+    filmBoxArtLink String,
+    filmCertRating String minlength(1) maxlength(4)
+}
+
+relationship ManyToMany {
+	Film{genre(genreName)} to Genre{film}
+}
+
+entity FavouriteFilm{
+    favouriteFilmTitle String required minlength(1) maxlength(30),    
+    favouriteFilmYear Integer required min(1890) max(2100),
+    favouriteFilmDurationInMinutes Integer min(0) max(1440),
+    favouriteFilmSynopsis String minlength(1) maxlength(1024), 
+    favouriteFilmNetflixRating Integer min(0) max(100),    
+    favouriteFilmUserRating Integer min(0) max(100),    
+    createdFavouriteFilm ZonedDateTime
+}
+
+relationship ManyToOne{
+	FavouriteFilm{owner(login)} to User
+}
+
+relationship OneToOne{
+	FavouriteFilm{film} to Film
+}
+
+// Set pagination options
+paginate Genre, Film with infinite-scroll
+paginate FavouriteFilm with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity FavouriteFilm.
+    -->
+    <changeSet id="20161126110055-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="film_id"
+                                 baseTableName="favourite_film"
+                                 constraintName="fk_favourite_film_film_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="film"/>
+
+        <addForeignKeyConstraint baseColumnNames="owner_id"
+                                 baseTableName="favourite_film"
+                                 constraintName="fk_favourite_film_owner_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+    </changeSet>
+</databaseChangeLog>

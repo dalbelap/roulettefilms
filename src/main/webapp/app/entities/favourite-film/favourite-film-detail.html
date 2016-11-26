@@ -1,0 +1,55 @@
+
+<div>
+    <h2><span data-translate="roulettefilmsApp.favouriteFilm.detail.title">Favourite Film</span> {{vm.favouriteFilm.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="roulettefilmsApp.favouriteFilm.favouriteFilmTitle">Favourite Film Title</span></dt>
+        <dd>
+            <span>{{vm.favouriteFilm.favouriteFilmTitle}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.favouriteFilm.favouriteFilmYear">Favourite Film Year</span></dt>
+        <dd>
+            <span>{{vm.favouriteFilm.favouriteFilmYear}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.favouriteFilm.favouriteFilmDurationInMinutes">Favourite Film Duration In Minutes</span></dt>
+        <dd>
+            <span>{{vm.favouriteFilm.favouriteFilmDurationInMinutes}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.favouriteFilm.favouriteFilmSynopsis">Favourite Film Synopsis</span></dt>
+        <dd>
+            <span>{{vm.favouriteFilm.favouriteFilmSynopsis}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.favouriteFilm.favouriteFilmNetflixRating">Favourite Film Netflix Rating</span></dt>
+        <dd>
+            <span>{{vm.favouriteFilm.favouriteFilmNetflixRating}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.favouriteFilm.favouriteFilmUserRating">Favourite Film User Rating</span></dt>
+        <dd>
+            <span>{{vm.favouriteFilm.favouriteFilmUserRating}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.favouriteFilm.createdFavouriteFilm">Created Favourite Film</span></dt>
+        <dd>
+            <span>{{vm.favouriteFilm.createdFavouriteFilm | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.favouriteFilm.film">Film</span></dt>
+        <dd>
+            <a ui-sref="film-detail({id:vm.favouriteFilm.filmId})">{{vm.favouriteFilm.filmId}}</a>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.favouriteFilm.owner">Owner</span></dt>
+        <dd>
+            {{vm.favouriteFilm.ownerLogin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="favourite-film-detail.edit({id:vm.favouriteFilm.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

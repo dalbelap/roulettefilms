@@ -1,0 +1,23 @@
+{
+    "roulettefilmsApp": {
+        "genre" : {
+            "home": {
+                "title": "Genres",
+                "createLabel": "Skapa en ny Genre",
+                "createOrEditLabel": "Skapa eller ändra en Genre",
+                "search": "Sök efter Genre"
+            },
+            "created": "En ny Genre är skapad med id {{ param }}",
+            "updated": "En Genre är uppdaterad med id  {{ param }}",
+            "deleted": "En Genre är borttagen med id  {{ param }}",
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Genre {{ id }}?"
+            },
+            "detail": {
+                "title": "Genre"
+            },
+            "genreName": "Genre Name",
+            "film": "Film"
+        }
+    }
+}

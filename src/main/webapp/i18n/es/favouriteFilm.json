@@ -1,0 +1,30 @@
+{
+    "roulettefilmsApp": {
+        "favouriteFilm" : {
+            "home": {
+                "title": "Favourite Films",
+                "createLabel": "Crear nuevo Favourite Film",
+                "createOrEditLabel": "Crear o editar Favourite Film",
+                "search": "Search for Favourite Film"
+            },
+            "created": "Un nuevo Favourite Film ha sido creado con el identificador {{ param }}",
+            "updated": "Un Favourite Film ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Favourite Film ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Favourite Film {{ id }}?"
+            },
+            "detail": {
+                "title": "Favourite Film"
+            },
+            "favouriteFilmTitle": "Favourite Film Title",
+            "favouriteFilmYear": "Favourite Film Year",
+            "favouriteFilmDurationInMinutes": "Favourite Film Duration In Minutes",
+            "favouriteFilmSynopsis": "Favourite Film Synopsis",
+            "favouriteFilmNetflixRating": "Favourite Film Netflix Rating",
+            "favouriteFilmUserRating": "Favourite Film User Rating",
+            "createdFavouriteFilm": "Created Favourite Film",
+            "film": "Film",
+            "owner": "Owner"
+        }
+    }
+}

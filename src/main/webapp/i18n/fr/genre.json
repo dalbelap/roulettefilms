@@ -1,0 +1,23 @@
+{
+    "roulettefilmsApp": {
+        "genre" : {
+            "home": {
+                "title": "Genres",
+                "createLabel": "Créer un nouveau Genre",
+                "createOrEditLabel": "Créer ou éditer un Genre",
+                "search": "Recherche pour Genre"
+            },
+            "created": "Un nouveau Genre a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Genre avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Genre avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Genre {{ id }} ?"
+            },
+            "detail": {
+                "title": "Genre"
+            },
+            "genreName": "Genre Name",
+            "film": "Film"
+        }
+    }
+}

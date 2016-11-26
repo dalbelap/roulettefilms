@@ -1,0 +1,69 @@
+
+<div>
+    <h2><span data-translate="roulettefilmsApp.film.detail.title">Film</span> {{vm.film.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="roulettefilmsApp.film.filmTitle">Film Title</span></dt>
+        <dd>
+            <span>{{vm.film.filmTitle}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.film.filmYear">Film Year</span></dt>
+        <dd>
+            <span>{{vm.film.filmYear}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.film.filmDurationInMinutes">Film Duration In Minutes</span></dt>
+        <dd>
+            <span>{{vm.film.filmDurationInMinutes}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.film.filmSynopsis">Film Synopsis</span></dt>
+        <dd>
+            <span>{{vm.film.filmSynopsis}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.film.netflixRatingChartNumber">Netflix Rating Chart Number</span></dt>
+        <dd>
+            <span>{{vm.film.netflixRatingChartNumber}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.film.filmUrl">Film Url</span></dt>
+        <dd>
+            <span>{{vm.film.filmUrl}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.film.filmCriticScore">Film Critic Score</span></dt>
+        <dd>
+            <span>{{vm.film.filmCriticScore}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.film.filmAudienceScore">Film Audience Score</span></dt>
+        <dd>
+            <span>{{vm.film.filmAudienceScore}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.film.filmNetflixRating">Film Netflix Rating</span></dt>
+        <dd>
+            <span>{{vm.film.filmNetflixRating}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.film.filmBoxArtLink">Film Box Art Link</span></dt>
+        <dd>
+            <span>{{vm.film.filmBoxArtLink}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.film.filmCertRating">Film Cert Rating</span></dt>
+        <dd>
+            <span>{{vm.film.filmCertRating}}</span>
+        </dd>
+        <dt><span data-translate="roulettefilmsApp.film.genre">Genre</span></dt>
+        <dd>
+            <span ng-repeat="genre in vm.film.genres">
+                <a ui-sref="genre-detail({id: genre.id})">{{genre.genreName}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="film-detail.edit({id:vm.film.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

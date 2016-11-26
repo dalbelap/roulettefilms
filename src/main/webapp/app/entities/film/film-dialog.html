@@ -1,0 +1,224 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFilmLabel" data-translate="roulettefilmsApp.film.home.createOrEditLabel">Create or edit a Film</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.film.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.film.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="roulettefilmsApp.film.filmTitle" for="field_filmTitle">Film Title</label>
+            <input type="text" class="form-control" name="filmTitle" id="field_filmTitle"
+                    ng-model="vm.film.filmTitle"
+                    required ng-minlength="1" ng-maxlength="30" />
+            <div ng-show="editForm.filmTitle.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.filmTitle.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.filmTitle.$error.minlength" data-translate="entity.validation.minlength" translate-value-min="1">
+                    This field is required to be at least 1 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.filmTitle.$error.maxlength" data-translate="entity.validation.maxlength" translate-value-max="30">
+                    This field cannot be longer than 30 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="roulettefilmsApp.film.filmYear" for="field_filmYear">Film Year</label>
+            <input type="number" class="form-control" name="filmYear" id="field_filmYear"
+                    ng-model="vm.film.filmYear"
+                    required min="1890" max="2100" />
+            <div ng-show="editForm.filmYear.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.filmYear.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.filmYear.$error.min" data-translate="entity.validation.min" translate-value-min="1890">
+                    This field should be more than 1890.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.filmYear.$error.max" data-translate="entity.validation.max" translate-value-max="2100">
+                    This field cannot be more than 2100.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.filmYear.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="roulettefilmsApp.film.filmDurationInMinutes" for="field_filmDurationInMinutes">Film Duration In Minutes</label>
+            <input type="number" class="form-control" name="filmDurationInMinutes" id="field_filmDurationInMinutes"
+                    ng-model="vm.film.filmDurationInMinutes"
+                    min="0" max="1440" />
+            <div ng-show="editForm.filmDurationInMinutes.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.filmDurationInMinutes.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.filmDurationInMinutes.$error.max" data-translate="entity.validation.max" translate-value-max="1440">
+                    This field cannot be more than 1440.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.filmDurationInMinutes.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="roulettefilmsApp.film.filmSynopsis" for="field_filmSynopsis">Film Synopsis</label>
+            <input type="text" class="form-control" name="filmSynopsis" id="field_filmSynopsis"
+                    ng-model="vm.film.filmSynopsis"
+                    ng-minlength="1" ng-maxlength="1024" />
+            <div ng-show="editForm.filmSynopsis.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.filmSynopsis.$error.minlength" data-translate="entity.validation.minlength" translate-value-min="1">
+                    This field is required to be at least 1 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.filmSynopsis.$error.maxlength" data-translate="entity.validation.maxlength" translate-value-max="1024">
+                    This field cannot be longer than 1024 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="roulettefilmsApp.film.netflixRatingChartNumber" for="field_netflixRatingChartNumber">Netflix Rating Chart Number</label>
+            <input type="number" class="form-control" name="netflixRatingChartNumber" id="field_netflixRatingChartNumber"
+                    ng-model="vm.film.netflixRatingChartNumber"
+                    required min="0" />
+            <div ng-show="editForm.netflixRatingChartNumber.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.netflixRatingChartNumber.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.netflixRatingChartNumber.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.netflixRatingChartNumber.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="roulettefilmsApp.film.filmUrl" for="field_filmUrl">Film Url</label>
+            <input type="text" class="form-control" name="filmUrl" id="field_filmUrl"
+                    ng-model="vm.film.filmUrl"
+                    required />
+            <div ng-show="editForm.filmUrl.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.filmUrl.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="roulettefilmsApp.film.filmCriticScore" for="field_filmCriticScore">Film Critic Score</label>
+            <input type="number" class="form-control" name="filmCriticScore" id="field_filmCriticScore"
+                    ng-model="vm.film.filmCriticScore"
+                    min="0" max="100" />
+            <div ng-show="editForm.filmCriticScore.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.filmCriticScore.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.filmCriticScore.$error.max" data-translate="entity.validation.max" translate-value-max="100">
+                    This field cannot be more than 100.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.filmCriticScore.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="roulettefilmsApp.film.filmAudienceScore" for="field_filmAudienceScore">Film Audience Score</label>
+            <input type="number" class="form-control" name="filmAudienceScore" id="field_filmAudienceScore"
+                    ng-model="vm.film.filmAudienceScore"
+                    min="0" max="100" />
+            <div ng-show="editForm.filmAudienceScore.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.filmAudienceScore.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.filmAudienceScore.$error.max" data-translate="entity.validation.max" translate-value-max="100">
+                    This field cannot be more than 100.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.filmAudienceScore.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="roulettefilmsApp.film.filmNetflixRating" for="field_filmNetflixRating">Film Netflix Rating</label>
+            <input type="number" class="form-control" name="filmNetflixRating" id="field_filmNetflixRating"
+                    ng-model="vm.film.filmNetflixRating"
+                    min="0" max="100" />
+            <div ng-show="editForm.filmNetflixRating.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.filmNetflixRating.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.filmNetflixRating.$error.max" data-translate="entity.validation.max" translate-value-max="100">
+                    This field cannot be more than 100.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.filmNetflixRating.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="roulettefilmsApp.film.filmBoxArtLink" for="field_filmBoxArtLink">Film Box Art Link</label>
+            <input type="text" class="form-control" name="filmBoxArtLink" id="field_filmBoxArtLink"
+                    ng-model="vm.film.filmBoxArtLink"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="roulettefilmsApp.film.filmCertRating" for="field_filmCertRating">Film Cert Rating</label>
+            <input type="text" class="form-control" name="filmCertRating" id="field_filmCertRating"
+                    ng-model="vm.film.filmCertRating"
+                    ng-minlength="1" ng-maxlength="4" />
+            <div ng-show="editForm.filmCertRating.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.filmCertRating.$error.minlength" data-translate="entity.validation.minlength" translate-value-min="1">
+                    This field is required to be at least 1 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.filmCertRating.$error.maxlength" data-translate="entity.validation.maxlength" translate-value-max="4">
+                    This field cannot be longer than 4 characters.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="roulettefilmsApp.film.genre" for="field_genre">Genre</label>
+            <select class="form-control" id="field_genre" multiple name="genre" ng-model="vm.film.genres" ng-options="genre as genre.genreName for genre in vm.genres track by genre.id"></select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

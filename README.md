@@ -1,6 +1,6 @@
-# roulettefilms
+# Roulette Films
 
-This application was generated using JHipster 3.11.0, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v3.11.0](https://jhipster.github.io/documentation-archive/v3.11.0).
+Aplicación para la búsqueda de películas y poder seleccionar aquellas que más te gustan. Mediante un botón de seleccionar película, poder buscar una película para ver entre los amigos, novia o compañeros de piso que no hayan visto ninguno y cumpla con las espectativas (categoría de película, rango de puntuación, estilo similar, filtro de búsqueda en texto, etc)
 
 ## Development
 
